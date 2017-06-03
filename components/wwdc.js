@@ -12,15 +12,15 @@ mongoose.connect("mongodb://utzhushou:ada23333@ds019836.mlab.com:19836/utzhushou
 // var URL_OF_LIBRARY_API = "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0\u0026amp;num=-1\u0026amp;q=http://www.feed43.com/2343747281410148.xml";
 
 wwdcSchema.statics.findRecentOne = function(cb, id) {
-  return this.model('wwdc').findOne({_id: { $ne: id }}, cb);
+  return this.findOne({_id: { $ne: id }}, cb);
 };
 
 wwdcSchema.statics.findRecentTen = function(cb) {
-  return this.model('wwdc').find({}, cb).limit(10);
+  return this.find({}, cb).limit(10);
 };
 
 wwdcSchema.statics.findAll = function(cb) {
-  return this.model('wwdc').find({}, cb);
+  return this.find({}, cb);
 };
 
 var comment = mongoose.model('wwdc', wwdcSchema);
@@ -39,7 +39,7 @@ exports.wwdc = function(query, callback) {
                     response += "请继续多多回复！(ง๑ •̀_•́)ง"
                     return callback(response);
                 }
-            }, newComment._id)
+            })
         } else {
             var newComment = new comment({
                 content: query.replace(/wwdc/i, "").trim(" ")

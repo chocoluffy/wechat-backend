@@ -55,7 +55,7 @@ exports.wwdc = function(query, callback) {
                             console.log(err);
                             return callback("呃、服务器出问题了，我们好像听不清你在说什么。\n等会再试试吧，ADA的技术人员马上睡醒了~")
                         } else {
-                            var response = "你的回复我确实听到了！\n(o゜▽゜)o☆\n最近的一条发言是\n\n----------\n" + data[0].content + "\n----------\n直接回复wwdc可以查看最新的10条哟"
+                            var response = "你的回复我确实听到了！\n(o゜▽゜)o☆\n最近的一条发言是\n\n----------\n" + data[0].content + "\n----------\n\n直接回复wwdc可以查看最新的10条哟"
                             return callback(response);
                         }
                     }, newComment._id)

@@ -28,7 +28,7 @@ var comment = mongoose.model('wwdc', wwdcSchema);
 
 moment.updateLocale('en', { // translate time.fromNow into Chinese characters
     relativeTime : {
-        future: "in %s",
+        future: "还有%s",
         past:   "%s前",
         s:  "几秒",
         m:  "一分钟",
@@ -46,9 +46,9 @@ moment.updateLocale('en', { // translate time.fromNow into Chinese characters
 
 exports.wwdc = function(query, callback) {
 
-    if (new Date() < new Date("2017/06/05 10:00:00")) {
+    if (new Date() < new Date("2017/06/05 10:00:00 PDT")) {
 
-        callback("(ﾟдﾟ≡ﾟдﾟ)你急什么！还没开始呢！\n给你倒计时\n\n" + moment("2017/06/05 10:00:00").fromNow())
+        callback("(ﾟдﾟ≡ﾟдﾟ)你急什么！还没开始呢！\n给你倒计时\n\n" + moment("2017/06/05 10:00:00 PDT").fromNow())
     } else {
         if (query.search(/wwdc/i) == 0) {
 

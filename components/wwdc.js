@@ -13,11 +13,11 @@ mongoose.connect("mongodb://utzhushou:ada23333@ds019836.mlab.com:19836/utzhushou
 
 wwdcSchema.statics.findRecentOne = function(cb, id) {
   // return this.findOne({_id: { $ne: id }}, cb);
-  return this.find({_id: { $ne: id }}).limit(1).sort({$natural:-1})
+  return this.find({_id: { $ne: id }}, cb).limit(1).sort({$natural:-1})
 };
 
 wwdcSchema.statics.findRecentTen = function(cb) {
-  return this.find({}).limit(10).sort({$natural:-1})
+  return this.find({}, cb).limit(10).sort({$natural:-1})
 };
 
 wwdcSchema.statics.findAll = function(cb) {

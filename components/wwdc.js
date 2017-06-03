@@ -48,7 +48,7 @@ exports.wwdc = function(query, callback) {
 
     if (new Date() < new Date("2017/06/05 10:00:00")) {
 
-        response("(ﾟдﾟ≡ﾟдﾟ)你急什么！还没开始呢！\n给你倒计时\n\n" + moment("2017/06/05 10:00:00").fromNow())
+        callback("(ﾟдﾟ≡ﾟдﾟ)你急什么！还没开始呢！\n给你倒计时\n\n" + moment("2017/06/05 10:00:00").fromNow())
     } else {
         if (query.search(/wwdc/i) == 0) {
 

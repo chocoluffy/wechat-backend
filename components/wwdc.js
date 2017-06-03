@@ -13,15 +13,15 @@ mongoose.connect("mongodb://utzhushou:ada23333@ds019836.mlab.com:19836/utzhushou
 
 var comment = mongoose.model('wwdc', wwdcSchema);
 
-wwdcSchema.methods.findRecentOne = function(cb, id) {
+wwdcSchema.statics.findRecentOne = function(cb, id) {
   return this.model('wwdc').findOne({_id: { $ne: id }}, cb);
 };
 
-wwdcSchema.methods.findRecentTen = function(cb) {
+wwdcSchema.statics.findRecentTen = function(cb) {
   return this.model('wwdc').find({}, cb).limit(10);
 };
 
-wwdcSchema.methods.findAll = function(cb) {
+wwdcSchema.statics.findAll = function(cb) {
   return this.model('wwdc').find({}, cb);
 };
 
@@ -29,7 +29,7 @@ exports.wwdc = function(query, callback) {
     if (query.search(/wwdc/i) == 0) {
 
         if (query.length === 4) {
-            newComment.findRecentTen((err, data) => {
+            comment.findRecentTen((err, data) => {
                 if (err) {
                     console.log(err);
                     return callback("呃、服务器出问题了，我们好像听不清你在说什么。\n等会再试试吧，ADA的技术人员马上睡醒了~")
@@ -50,7 +50,7 @@ exports.wwdc = function(query, callback) {
                     console.log(err);
                     return callback("呃、服务器出问题了，我们好像听不清你在说什么。\n等会再试试吧，ADA的技术人员马上睡醒了~")
                 } else {
-                    newComment.findRecentOne((err, data) => {
+                    comment.findRecentOne((err, data) => {
                         if (err) {
                             console.log(err);
                             return callback("呃、服务器出问题了，我们好像听不清你在说什么。\n等会再试试吧，ADA的技术人员马上睡醒了~")

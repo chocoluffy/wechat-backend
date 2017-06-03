@@ -1,6 +1,6 @@
 var request = require("request");
 var mongoose = require("mongoose");
-var schema = mongoose.Schema;
+var Schema = mongoose.Schema;
 
 var wwdcSchema = new Schema({
     content: {

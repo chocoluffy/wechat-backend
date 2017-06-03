@@ -36,7 +36,7 @@ exports.wwdc = function(query, callback) {
                 } else {
                     var response = "正在给你呈现最近的" + data.length + "条回复！\n\n"
                     data.forEach(line => response += (line.content + '\n'))
-                    response += "请继续多多回复！(ง๑ •̀_•́)ง"
+                    response += "\n==========\n请继续多多回复！(ง๑ •̀_•́)ง"
                     return callback(response);
                 }
             })
@@ -45,7 +45,7 @@ exports.wwdc = function(query, callback) {
                 content: query.replace(/wwdc/i, "").trim(" ")
             });
 
-            newComment.save((err, comment) => {
+            newComment.save((err, com) => {
                 if (err) {
                     console.log(err);
                     return callback("呃、服务器出问题了，我们好像听不清你在说什么。\n等会再试试吧，ADA的技术人员马上睡醒了~")

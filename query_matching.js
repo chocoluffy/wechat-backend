@@ -90,6 +90,9 @@ exports.matching = function (query, callback) {
         opentime.library(query, callback);
     }
 
+    else if (/wwdc/i.test(query)) {
+    }
+
     /*
       Use chatterbot api.
      */

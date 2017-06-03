@@ -94,7 +94,7 @@ exports.matching = function (query, callback) {
       Use chatterbot api.
      */
     else {
-        chatterbot.chat(query, callback);
+        // chatterbot.chat(query, callback);
     }
 
 

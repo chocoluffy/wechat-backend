@@ -11,8 +11,6 @@ var wwdcSchema = new Schema({
 mongoose.connect("mongodb://utzhushou:ada23333@ds019836.mlab.com:19836/utzhushou")
 // var URL_OF_LIBRARY_API = "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0\u0026amp;num=-1\u0026amp;q=http://www.feed43.com/2343747281410148.xml";
 
-var comment = mongoose.model('wwdc', wwdcSchema);
-
 wwdcSchema.statics.findRecentOne = function(cb, id) {
   return this.model('wwdc').findOne({_id: { $ne: id }}, cb);
 };
@@ -24,6 +22,8 @@ wwdcSchema.statics.findRecentTen = function(cb) {
 wwdcSchema.statics.findAll = function(cb) {
   return this.model('wwdc').find({}, cb);
 };
+
+var comment = mongoose.model('wwdc', wwdcSchema);
 
 exports.wwdc = function(query, callback) {
     if (query.search(/wwdc/i) == 0) {

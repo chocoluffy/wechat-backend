@@ -36,7 +36,7 @@ exports.wwdc = function(query, callback) {
                     return callback("呃、服务器出问题了，我们好像听不清你在说什么。\n等会再试试吧，ADA的技术人员马上睡醒了~")
                 } else {
                     var response = "正在给你呈现最近的" + data.length + "条回复！\n\n"
-                    data.forEach(line => response += (line.content + '\n'))
+                    data.forEach(line => response += (line.content + '\n\n'))
                     response += "\n==========\n请继续多多回复！(ง๑ •̀_•́)ง"
                     return callback(response);
                 }
@@ -56,7 +56,7 @@ exports.wwdc = function(query, callback) {
                             console.log(err);
                             return callback("呃、服务器出问题了，我们好像听不清你在说什么。\n等会再试试吧，ADA的技术人员马上睡醒了~")
                         } else {
-                            var response = "你的回复我确实听到了！\n(o゜▽゜)o☆\n最近的一条发言是\n『" + data[0].content +"』\n\n==========\n直接回复wwdc可以查看最新的10条哟"
+                            var response = "你的回复我确实听到了！\n(o゜▽゜)o☆\n最近的一条发言是\n\n『" + data[0].content +"』\n\n==========\n直接回复wwdc可以查看最新的10条哟"
                             return callback(response);
                         }
                     }, newComment._id)

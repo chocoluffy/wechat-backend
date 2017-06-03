@@ -7,6 +7,7 @@ var opentime = require("./components/opentime");
 // var bot = require("./components/chatbot");
 var match_article = require("./components/match_article");
 var chatterbot = require("./components/chatterbot");
+var wwdc = require("./components/wwdc");
 // var chatbot = require("./components/chatbot");
 
 var SPECIAL_WORDS = {
@@ -91,6 +92,7 @@ exports.matching = function (query, callback) {
     }
 
     else if (/wwdc/i.test(query)) {
+        wwdc.wwdc(query, callback);
     }
 
     /*

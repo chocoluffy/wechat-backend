@@ -99,6 +99,20 @@ exports.matching = function (query, callback) {
       Use chatterbot api.
      */
     else {
+        /**
+         * For now, return menu string.
+         */
+        var menu = `目前小助手支持的功能有(输入'-'之前的关键字): \n
+         time - 查询lecture, tutorial的时间教师安排, (比如: time csc108) \n 
+         where - 各大建筑物的位置, (比如: where ba) \n 
+         book - 各课程课本信息, (比如: book mat244) \n 
+         lib - 各大图书馆的开放时间, (比如: lib gerstein) \n 
+         final - 查询期末考试时间, (比如: final csc108 csc165) \n 
+         头像 - 添加ADA的logo在图像下方, http://adaize.uoftada.com/, 来成为我们的一员吧! \n
+         鲸语 - 用人工智能为你推荐多伦多资讯攻略 https://appsto.re/ca/klNuhb.i \n
+         wwdc - 苹果WWDC2017，一起来看直播吐槽吧(ง๑ •̀_•́)ง \n
+         `;
+         callback(menu);
         // chatterbot.chat(query, callback);
     }
 
